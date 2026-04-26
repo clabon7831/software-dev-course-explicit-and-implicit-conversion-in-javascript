@@ -19,14 +19,29 @@ Use console.log() to clearly show the before-and-after type conversions.
 */
 
 
-let result = "5" - 2;
+let result = Number("5") - 2;
 console.log("The result is: " + result);
 
-let isValid = Boolean("false");
+let isValid = "false" === "true";
 if (isValid) {
     console.log("This is valid!");
 }
 
 let age = "25";
-let totalAge = age + 5;
+let totalAge = Number(age) + 5;
 console.log("Total Age: " + totalAge);
+
+// Implicit conversion example
+let implicitExample = "5" + 5;
+console.log(implicitExample); // "55"
+console.log(typeof implicitExample); // string
+
+// Explicit conversion example
+let explicitExample = Number("5") + 5;
+console.log(explicitExample); // 10
+console.log(typeof explicitExample); // number
+
+// Edge case: NaN
+let badValue = Number("hello");
+console.log(badValue); // NaN
+console.log(typeof badValue); // number
